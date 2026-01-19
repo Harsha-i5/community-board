@@ -1,0 +1,416 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #f6f6fb;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 0 0 20%;
+  min-width: 200px;
+  background: #4b1f78;
+  color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menu li.active,
+.menu li:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.menu li.post {
+  margin-top: 10px;
+}
+
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
+  overflow: hidden;
+}
+
+.main > * {
+  width: 100%;
+  max-width: 80%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  background: #5e2ca5;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #4a2184;
+}
+
+/* Search */
+.search-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 10px 40px 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+/* Category List */
+.category-list {
+  overflow-y: auto;
+  padding-right: 10px;
+  flex: 1;
+}
+
+.no-results {
+  text-align: center;
+  color: #888;
+  padding: 40px;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 10px;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  flex: 1;
+}
+
+/* Actions Dropdown - Task 5 */
+.actions {
+  position: relative;
+}
+
+.action-btn {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.action-btn:hover {
+  background: #f0f0f0;
+}
+
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 120px;
+  z-index: 10;
+  display: none;
+}
+
+.dropdown.show {
+  display: block;
+}
+
+.dropdown button {
+  display: block;
+  padding: 10px 16px;
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.dropdown button:hover {
+  background: #f5f5f5;
+}
+
+.dropdown .danger {
+  color: #c62828;
+}
+
+/* Description */
+.description {
+  font-size: 14px;
+  color: #666;
+  margin: 10px 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.description.expanded {
+  -webkit-line-clamp: unset;
+}
+
+/* Highlight search text - Task 3 */
+.highlight {
+  background-color: #fff59d;
+  padding: 2px 0;
+}
+
+/* Read More Button - Task 6 */
+.read-more-btn {
+  background: none;
+  border: none;
+  color: #4caf50;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
+/* Meta */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #888;
+  margin-top: 10px;
+}
+
+.meta-post-icon {
+  font-size: 18px;
+  color: #5e2ca5;
+}
+
+/* Modal - Task 4 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid #eee;
+}
+
+.modal-footer button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.cancel-btn {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.cancel-btn:hover {
+  background: #e0e0e0;
+}
+
+.save-btn {
+  background: #5e2ca5;
+  color: #fff;
+}
+
+.save-btn:hover {
+  background: #4a2184;
+}
+/* 
+/* Responsive 
+@media (max-width: 1200px) {
+  .main > * {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    flex: 0 0 25%;
+    min-width: 150px;
+  }
+
+  .main > * {
+    max-width: 90%;
+  }
+
+  .menu-text {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main > * {
+    max-width: 100%;
+  }
+} */
+
+@media (max-width: 500px){
+.sidebar {
+    flex: 0 1 25%;
+    min-width: 50px;
+    font-size: 14px;
+  }
+  .menu-text {
+    display: none;
+  }
+
+  .main > * {
+    max-width: 300px;
+  }
+
+}
